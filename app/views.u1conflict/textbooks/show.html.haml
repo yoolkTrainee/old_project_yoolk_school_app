@@ -1,0 +1,53 @@
+
+%h2{:style => "margin-left:25px; text-shadow: 2px 2px 3px gray"}  Information of TextBook
+
+= render "left_navigation_menu"
+
+.create-new-cat
+  .image-block
+    .image-area
+      = image_tag @textbook.image.url(:thumb)
+    .div.image-text-show
+      %span{:style => "color: #02729A; font-weight: bold; text-shadow: 1px 1px 2px gray "}
+        Textbook:
+      %span
+        = @textbook.title
+  %table.table-condensed.table-alignt-right
+    %tbody
+      %tr 
+        %th
+          %lable Title :
+        %td
+          %span
+            =@textbook.title
+      %tr
+        %th
+          %lable Author :
+        %td
+          %span
+            =@textbook.author
+      %tr
+        %th
+          %lable Publisher :
+        %td
+          %span
+            =@textbook.publisher
+      %tr
+        %th
+          %lable Year :
+    
+        %td
+          %span
+            =@textbook.year
+      %tr
+        %th
+          %lable URI :
+        %td
+          %span
+            =@textbook.uri
+  
+  .div{:style => "margin-left:150px; width: 430px; margin-left: 250px"}
+    %hr
+    = link_to "Back", textbooks_path, :class =>'btn', :style => "width: 65px;"  
+  
+    

@@ -1,0 +1,41 @@
+ 
+%div.main_container_list
+  %ul.nav.nav-list.active
+    %li.nav-header
+      School Mangement Listing
+    %li
+      =link_to "Home", root_path
+    %li
+      =link_to "Class", klasses_path
+    %li
+      =link_to "Courses", courses_path
+    %li
+      =link_to "Text Books", textbooks_path
+    %li.spec_tutor
+      =link_to "Tutors", tutors_path
+    %li.nav-header
+      Lists under construction
+    %li
+      =link_to "Clients", "construction.html"
+    %li
+      =link_to "Jobs", "construction.html"
+    %li 
+      =link_to "Location", "construction.html"
+    %li
+      =link_to "Contact", "construction.html"
+    %li
+      =link_to "Community", "construction.html"
+    %li.nav-header
+      New Setup
+    %ul.nav.nav-pills
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          Resource Installation
+          %b.caret
+        %ul.dropdown-menu
+          %li 
+            =link_to "Class", klasses_path
+          %li
+            =link_to "Textbooks", textbooks_path
+          %li
+            =link_to "Tutors",  tutors_path

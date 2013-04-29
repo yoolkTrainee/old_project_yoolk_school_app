@@ -1,0 +1,53 @@
+
+%h2{:style => "margin-left:25px; text-shadow: 2px 2px 3px gray"} 
+  Text Book list
+= render "left_navigation_menu"
+
+%form.form-container_textbook
+  %div{:style => "background-color:#E0E0E0; height:30px; text-align:center; box-shadow: 1px 1px 2px gray; width: 960px"}
+    %h4{:style => "padding:5px;"}
+      Information Class
+
+  %div.float-left
+    %table#rails-gen.display.table-custom-textbook
+      %thead
+        %tr
+          %th
+            Action
+          %th
+            Title
+          %th
+            Author
+          %th
+            Publisher
+          %th
+            Year
+          %th
+            URI
+      %tbody
+        -@textbook.each do |textbook|
+          %tr
+            %td
+              = link_to '<i class="icon-list-alt"></i>'.html_safe, textbook_path(textbook),:placement => "top", :title => "Show", :id => "show"
+
+              %span{:style => "padding-left:10px;"}
+                = link_to "<i class = 'icon-edit'></i>".html_safe, edit_textbook_path(textbook), :title => 'Edit',:id => "edit"
+
+
+              %span{:style => "padding-left:10px;"}
+                = link_to "<i class = 'icon-remove'></i>".html_safe, textbook_path(textbook), :method => :delete, :data => { :confirm => "Are you sure to delete this TextBook?" }, :title => 'Delete', :id => "delete"
+            %td 
+              =textbook.title
+            %td 
+              =textbook.author
+            %td 
+              =textbook.publisher
+            %td 
+              =textbook.year
+            %td 
+              =textbook.uri
+
+    .div{:style => "; width: 900px;padding-top: 10px; text-align: left; padding-bottom: 10px;"}
+      / %hr{:style => "box-shadow: 1px 1px 2px gray"}
+      = link_to "Create New TextBook", new_textbook_path, :class =>'btn btn-info',:style => "box-shadow: 1px 1px 2px gray; margin-left: 15px"
+      = link_to "Back", root_path, :class =>'btn' ,:style => "box-shadow: 1px 1px 2px gray;margin-left: 10px;"

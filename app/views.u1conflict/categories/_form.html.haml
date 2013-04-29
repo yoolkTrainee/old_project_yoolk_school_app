@@ -1,0 +1,30 @@
+= form_for(zone) do |f|
+  %div.create-new-cat
+        
+    %table.table-custom-cate-form
+      %tr 
+        %th
+          = f.label :title, 'Title :'
+        %td
+          = f.text_field :title , {:placeholder => "Title Name...", :type => "text" , :class => "catTitle", :maxlength => "65"}
+        %td
+          %div.char
+            65 Charaters
+        %td
+          %div.validates
+            / execute from jquery
+
+      %tr
+        %th
+          = f.label :description, 'Description :'
+        %td
+          = f.text_field :description, {:placeholder => "Description Name...", :type => "text", :class => "catDesciption" }
+        
+      %tr
+        %td   
+          .div{:style => "margin-left: 50px"}
+            = submit_tag('Save', :class => 'btn btn-success catSubmit', :style => "box-shadow: 1px 1px 2px gray")
+        %td
+          .div
+            = link_to "Back", root_path, :class =>'btn', :style => "box-shadow: 1px 1px 2px gray"
+

@@ -1,0 +1,61 @@
+= form_for @tutor , :html => { :multipart => true } do |f|
+  .create-new-cat
+    .image-block
+      .image-area
+        / %img{:alt => "Smiley face", :height => "42", :src => "smiley.gif", :width => "42"}/
+        = image_tag @tutor.image.url(:thumb)
+      .div.image-text
+        %span
+          Upload your Tutor images 
+          %span{:style => "color: #02729A; font-weight: bold; text-shadow: 2px 2px 3px gray "}
+            Click here
+        %span{:style => "text-shadow: 2px 2px 3px gray; font-size:20px; "}
+          = link_to '<i class="icon-upload"></i>'.html_safe, "#"
+    %table.table-custom-tutor-form
+      %tr 
+        %th
+          = f.label :title, 'Title :'
+        %td
+          = f.select :title , options_for_select([["Mr.", "Mr."], ["Mrs.", "Mrs."], ["Dr.", "Dr."], ["Prof.", "Prof."], ["Msc.", "Msc."], ["Ms.", "Ms."]]), {:placeholder => "Title Name...", :type => "text", :class => "txt_tutor_title"}
+      %tr
+        %th
+          = f.label :first_name, 'First Name :'
+        %td
+          = f.text_field :first_name, {:placeholder => "First Name...", :type => "text",:maxlength => "45", :class => "txt_tutor_first_name"}
+      %tr
+        %th
+          = f.label :last_name, 'Last Name :'
+        %td
+          = f.text_field :last_name, {:placeholder => "Last Name...", :type => "text",:maxlength => "45", :class => "txt_tutor_last_name"}
+      %tr
+        %th
+          = f.label :designatory, 'Designatory :'
+        %td
+          = f.text_field :designatory, {:placeholder => "Designatory ...", :type => "text",:maxlength => "45", :class => "txt_tutor_designatory"}   
+      %tr
+        %th
+          = f.label :language, 'Language :'
+        %td
+          = f.text_field :language, {:placeholder => "Language ...", :type => "text" ,:size => "0x5",:maxlength => "45", :class => "txt_tutor_language"}
+      %tr
+        %th
+          = f.label :skillset, 'Skillset :'
+        %td
+          = f.text_field :skillset, {:placeholder => "Skillset. ..", :type => "text",:maxlength => "45", :class => "txt_tutor_skillset"} 
+
+      %tr
+        %th
+          = f.label :uri, 'URI :'
+        %td
+          = f.text_field :uri, {:placeholder => "URI. ...", :type => "text",:maxlength => "45", :class => "txt_tutor_uri"}
+      %tr
+        %th
+          = f.label :photo, 'Upload Photo :'
+        %td
+          %span
+            = f.file_field :image
+      %tr
+        %th  
+          = submit_tag('Save', :class => 'btn btn-success btn_tutor_submit')
+        %td
+          = link_to "Back", tutors_path, :class =>'btn'    

@@ -1,0 +1,47 @@
+// Place all the styles related to the klasses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#errorExplanation {
+  border: 1px solid red;
+  width: 400px;
+  background-color: #EBDFDF;
+  h2 {
+    background-color: #B20707;
+    margin-top: 0px;
+    font-size: 10pt;
+    color: white;
+    // padding: 3px 3px 3px 3px;
+  }
+  p {
+    font-size: 10pt;
+    margin-left: 15px;
+  }
+  ul li {
+    font-size: 9pt;
+    margin-left: 10px;
+  }
+}
+
+.float-left {
+  float: left;
+  margin-top: 0px;
+  background-color: #e0e0e0;
+  box-shadow: 1px 1px 2px gray;
+  border-radius: 5px; }
+
+.table-custom-klass {
+  th {
+    border-right: 1px solid #cccccc;
+    text-align: center;
+    width: 10%;
+    background-color: #f9f9f9; }
+  td {
+    table-layout: fixed;
+    width: 112px;
+    text-align: center;
+    border-right: 1px solid #cccccc;
+    &:nth-child(8) {
+      border-right: none; } }
+  th:nth-child(8) {
+    border-right: none; } }

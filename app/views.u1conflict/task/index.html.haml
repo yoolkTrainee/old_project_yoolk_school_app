@@ -1,0 +1,11 @@
+%h1 Check List
+
+= link_to "New Task", new_task_path, id: "new_link", :remote => true
+
+%h2 Incomplete Tasks
+.task{:id => "incomplete_tasks"}
+  = render @incomplete_task
+
+%h2 complete Tasks
+.task{:id => "complete_tasks"}
+  = render @complete_task

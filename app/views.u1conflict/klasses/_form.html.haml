@@ -1,0 +1,13 @@
+= form_for(klass) do |f|
+  %div.create-new-cat
+    / = f.error_messages
+    %table
+      %tr
+        %td
+          = f.label :name, "Name :"
+        %td
+          = f.text_field :name
+      %tr
+        %td
+          = submit_tag('Save', :class => 'btn btn-success', :id => "btnSaveClass")
+          = link_to "Back", klasses_path, :class => 'btn'

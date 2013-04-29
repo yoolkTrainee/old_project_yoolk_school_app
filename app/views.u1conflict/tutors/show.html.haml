@@ -1,0 +1,65 @@
+
+%h2{:style => "margin-left:25px; text-shadow: 2px 2px 3px gray"}  Information of Tutors
+
+= render "left_navigation_menu"
+
+.create-new-cat
+  .image-block
+    .image-area
+      = image_tag @tutor.image.url(:thumb)
+    .div.image-text-show
+      %span{:style => "color: #02729A; font-weight: bold; text-shadow: 1px 1px 2px gray "}
+        Turtor:
+      %span
+        = @tutor.title
+  %table.table-condensed.table-align-right
+    %tbody
+      %tr 
+        %th
+          %lable Title :
+        %td
+          %span
+            =@tutor.title
+      %tr
+        %th
+          %lable First Name :
+        %td
+          %span
+            =@tutor.first_name
+      %tr
+        %th
+          %lable Last Name :
+        %td
+          %span
+            =@tutor.last_name
+      %tr
+        %th
+          %lable Designatory :
+    
+        %td
+          %span
+            =@tutor.designatory
+      %tr
+        %th
+          %lable Language :
+        %td
+          %span
+            =@tutor.language
+      %tr
+        %th
+          %lable Skillset :
+        %td
+          %span
+            =@tutor.skillset
+      %tr
+        %th
+          %lable URI :
+        %td
+          %span
+            =@tutor.uri
+  
+  .div{:style => "margin-left:150px; width: 430px; margin-left: 250px"}
+    %hr
+    = link_to "Back", tutors_path, :class =>'btn', :style => "width: 65px;"  
+  
+    

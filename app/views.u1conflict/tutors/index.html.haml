@@ -1,0 +1,61 @@
+
+%h2{:style => "margin-left:25px; text-shadow: 2px 2px 3px gray"} 
+  Tutors List
+= render "left_navigation_menu"
+
+%form.form-container_textbook
+  %div{:style => "background-color:#E0E0E0; height:30px; text-align:center; box-shadow: 1px 1px 2px gray;width: 960px"}
+    %h4{:style => "padding:5px;"}
+      Information of Tutors
+
+  %div.float-left
+    %table#rails-gen.display.table-custom-tutor
+      %thead
+        %tr
+          %th
+            Action
+          %th
+            Title
+          %th
+            First Name
+          %th
+            Last Name
+          %th
+            Designatory
+          %th
+            Language
+          %th
+            Skillset
+          %th
+            URI
+      %tbody
+        -@tutor.each do |tutor|
+          %tr
+            %td
+              = link_to '<i class="icon-list-alt"></i>'.html_safe, tutor_path(tutor),:placement => "top", :title => "Show", :id => "show"
+
+              %span{:style => "padding-left:10px;"}
+                = link_to "<i class = 'icon-edit'></i>".html_safe, edit_tutor_path(tutor), :title => 'Edit',:id => "edit"
+
+
+              %span{:style => "padding-left:10px;"}
+                = link_to "<i class = 'icon-remove'></i>".html_safe, tutor_path(tutor), :method => :delete, :data => { :confirm => "Are you sure to delete this Tutor?" }, :title => 'Delete', :id => "delete"
+            %td 
+              =tutor.title
+            %td 
+              =tutor.first_name
+            %td 
+              =tutor.last_name
+            %td 
+              =tutor.designatory
+            %td 
+              =tutor.language
+            %td 
+              =tutor.skillset
+            %td 
+              =tutor.uri
+
+    .div{:style => "; width: auto; padding-top: 10px; text-align: left; padding-bottom: 10px;"}
+      / %hr{:style => "box-shadow: 1px 1px 2px gray"}
+      = link_to "Create New Tutor", new_tutor_path, :class =>'btn btn-info',:style => "box-shadow: 1px 1px 2px gray; margin-left: 15px"
+      = link_to "Back", root_path, :class =>'btn' ,:style => "box-shadow: 1px 1px 2px gray; margin-left: 10px;"

@@ -1,0 +1,51 @@
+= form_for @textbook , :html => { :multipart => true } do |f|
+  .create-new-cat
+    .image-block
+      .image-area
+        / %img{:alt => "Smiley face", :height => "42", :src => "smiley.gif", :width => "42"}/
+        = image_tag @textbook.image.url(:thumb)
+      .div.image-text
+        %span
+          Upload your Textbook images 
+          %span{:style => "color: #02729A; font-weight: bold; text-shadow: 2px 2px 3px gray "}
+            Click here
+        %span{:style => "text-shadow: 2px 2px 3px gray; font-size:20px; "}
+          = link_to '<i class="icon-upload"></i>'.html_safe, "#"
+    %table.table_custom_textBook_form
+      %tr 
+        %th
+          = f.label :title, 'Title :'
+        %td
+          = f.text_field :title , {:placeholder => "Title Name...", :type => "text", :maxlength => "60", :class => "txt_textbook_title"}
+      %tr
+        %th
+          = f.label :author, 'Author :'
+        %td
+          = f.text_field :author, {:placeholder => "Author Name...", :type => "text" , :maxlength => "45", :class => "txt_textbook_author"}
+      %tr
+        %th
+          = f.label :publisher, 'Publisher :'
+        %td
+          = f.text_field :publisher, {:placeholder => "Publisher...", :type => "text", :maxlength => "45", :class => "txt_textbook_publisher"}
+      %tr
+        %th
+          = f.label :year, 'Year :'
+    
+        %td
+          = f.text_field :year, {:placeholder => "Year...", :type => "text", :maxlength => "4", :class => "txt_textbook_year"}
+      %tr
+        %th
+          = f.label :uri, 'URI :'
+        %td
+          = f.text_field :uri, {:placeholder => "URI...", :type => "text", :maxlength => "60", :class => "txt_textbook_uri"}
+      %tr
+        %th
+          = f.label :photo, 'Upload Photo :'
+        %td
+          %span
+            = f.file_field :image
+      %tr
+        %th  
+          = submit_tag('Save', :class => 'btn btn-success btn_textbook_submit')
+        %td
+          = link_to "Back", textbooks_path, :class =>'btn'    

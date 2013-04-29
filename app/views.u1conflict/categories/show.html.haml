@@ -1,0 +1,33 @@
+%h2{:style => "margin-left:25px; text-shadow: 2px 2px 3px gray"}  All Courses Informations
+%h4{:style => "margin-left:250px; text-shadow: 2px 2px 3px gray"} Listing Courses
+
+= render "left_navigation_menu"
+
+
+
+%div.list-course
+  %table.table.fix
+    %tr{:style => "background-color: #EEEEEE;"}
+      %th{:colspan => "3"}
+        = @category.title
+      %th
+        = link_to "Informations", edit_category_path(@category) ,:title => "Show Informations"
+      %th
+        = link_to "Verify Categories", edit_category_path(@category), :title => "Edit Categories"
+      %th
+        = link_to "Delete Categories", category_path(@category), :method => :delete, :data => {:confirm => "Are you sure to delete category '#{@category.title}'' ?"},:title => "Delete Categories"
+  %table.table.table-hover  
+    -@category.courses.each do |course|
+      %tr.sort_t
+        %td{:style => "padding-left:35px;"}
+          =course.title
+        %td#course_action_show
+          = link_to '<i class="icon-list-alt"></i>'.html_safe, course_path(course),:placement => "top", :title => "Show"
+        %td#course_action_edit
+          = link_to '<i class="icon-edit"></i>'.html_safe, edit_course_path(course), :title => "Edit"
+        %td#course_action
+          = link_to '<i class="icon-remove"></i>'.html_safe, course_path(course), :method => :delete, :data => {:confirm => "Are you sure to delete this course ?"}, :title => "Delete"
+      %tr
+  %hr        
+  = link_to  "Add New Course", new_course_path, :class =>'btn btn-info'
+  = link_to  "Back", root_path, :class =>'btn'
